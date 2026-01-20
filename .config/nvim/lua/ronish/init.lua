@@ -1,3 +1,3 @@
-require("ronish.remap")
 require("ronish.settings")
-require("ronish.lazymanager")
+require("ronish.keymaps")
+require("ronish.plugins")

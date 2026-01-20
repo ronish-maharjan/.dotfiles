@@ -18,7 +18,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.api.nvim_set_keymap('n','<C-n>',':NvimTreeToggle<CR>',{noremap = true, silent = true})
 
 --Keymaps for telescope
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>lua require("telescope.builtin").find_files()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', { noremap = true, silent = true })
 
 --Keymaps for harpoon

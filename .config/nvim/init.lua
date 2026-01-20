@@ -1,2 +1,1 @@
-require("ronish")
-
+require("ronish.init")
