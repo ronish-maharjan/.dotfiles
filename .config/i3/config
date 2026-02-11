@@ -3,7 +3,7 @@
 #-----------------------------------------#
 #Setup i3-Status Bar
 bar {
-        status_command i3status
+    status_command i3status
 	position top
         tray_output primary
 	
@@ -18,7 +18,7 @@ bar {
 # Setup Border & Fonts for windows
 #-----------------------------------------#
 #Adding Fonts
-font pango:JetBrainsMono Nerd Font Mono 10 
+font pango:JetBrainsMono Nerd Font Mono 11 
 
 #Setting border for window
 for_window [class="^.*"] border pixel 2
@@ -46,7 +46,6 @@ bindsym $mod+Shift+r reload
 # Open D-menu 
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec --no-startup-id dmenu_run
-
 #-----------------------------------------#
 #   Bindings Related to Workspaces
 #-----------------------------------------#
@@ -131,6 +130,10 @@ mode "resize" {
 #-----------------------------------------#
 # Extra Bindings 
 #-----------------------------------------#
+
+# Less Refresh Rate around 60
+exec --no-startup-id xrandr --output eDP1 --mode 1920x1080 --rate 60
+
 #Open Terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -140,7 +143,22 @@ bindsym $mod+f fullscreen
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+
 #Show the wifi icon in status bar of i3 
-exec --no-startup-id nm-applet
+exec --no-startup-id nmapplet
 
+#For the notificaiton dunst
+exec --no-startup-id dunst
 
+#To incresae or decrease the brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%-
+
+# Audio keys (volume & mute)
+exec --no-startup-id pasystray
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+#For Flameshot 
+bindsym Print exec --no-startup-id flameshot gui
