@@ -11,8 +11,8 @@ general {
         interval = 7 
 }
 
+order += "battery all"
 order += "disk /"
-#order += "battery all"
 order += "load"
 order +="memory"
 order += "tztime local"
@@ -21,8 +21,12 @@ order += "tztime local"
 #        format = "%status %percentage %remaining"
 #}
 
+battery all {
+    format = "%status %percentage %remaining"
+}
+
 tztime local {
-        format = "%Y-%m-%d %I:%M:%S"
+        format = "%a %Y-%m-%d %I:%M"
 }
 
 load {
@@ -33,5 +37,5 @@ disk "/" {
         format = "%avail"
 }
 memory {
-        format = "Memory: %used/%total MB"  # Add memory usage format
+        format = "Memory: %used/%total"  # Add memory usage format
 }
