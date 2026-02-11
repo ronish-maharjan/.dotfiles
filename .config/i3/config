@@ -145,7 +145,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 
 #Show the wifi icon in status bar of i3 
-exec --no-startup-id nmapplet
+exec --no-startup-id nm-applet
 
 #For the notificaiton dunst
 exec --no-startup-id dunst
