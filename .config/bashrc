@@ -1,0 +1,51 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+
+# Add local bin to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# -------- Short Path (parent/current) --------
+short_path() {
+  if [[ "$PWD" == "/" ]]; then
+    echo "/"
+    return
+  fi
+
+  local current parent
+  current=$(basename "$PWD")
+  parent=$(basename "$(dirname "$PWD")")
+
+  if [[ "$(dirname "$PWD")" == "/" ]]; then
+    echo "$current"
+  else
+    echo "$parent/$current"
+  fi
+}
+
+# -------- Git Branch + Status --------
+parse_git_branch() {
+  git rev-parse --is-inside-work-tree &>/dev/null || return
+
+  local branch status
+  branch=$(git branch --show-current 2>/dev/null)
+
+  status=$(git status --porcelain 2>/dev/null)
+
+  local color reset
+  color="\033[0;32m"   # green
+  [[ -n "$status" ]] && color="\033[0;31m"  # red if dirty
+  reset="\033[0m"
+
+  echo -e " ${color} $branch${reset}"
+}
+
+# -------- Final Prompt --------
+export PS1="\u@\h \$(short_path)\$(parse_git_branch) \$ "
