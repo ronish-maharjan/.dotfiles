@@ -172,3 +172,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 
 #For Flameshot 
 bindsym Print exec --no-startup-id flameshot gui
+
+#For enabling and disabling the mike
+exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "Microphone" "$(pactl get-source-mute @DEFAULT_SOURCE@ | grep -q yes && echo 'Muted 🔇' || echo 'Active 🎙️')"
