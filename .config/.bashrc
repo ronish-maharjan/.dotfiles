@@ -115,3 +115,12 @@ jc() {
   git push
 }
 
+
+# Tmux related 
+tmux() {
+    if [ -z "$TMUX" ]; then
+        command tmux new-session -s "$(basename $PWD)" 2>/dev/null || command tmux attach -t "$(basename $PWD)"
+    else
+        command tmux "$@"
+    fi
+}
