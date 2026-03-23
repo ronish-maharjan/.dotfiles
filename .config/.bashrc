@@ -52,7 +52,7 @@ fd() {
     local dir
     dir=$(find ~ -maxdepth 4 -type d \
         ! -path "*/.git*" \
-        ! -path "*/node_modules*" | fzf --prompt="Cd > ")
+        ! -path "*/node_modules*" | fzf --prompt="> ")
     
     if [[ -n "$dir" ]]; then
         cd "$dir" || return
@@ -64,7 +64,7 @@ ff() {
     local file
     file=$(find ~ -maxdepth 4 -type f \
         ! -path "*/.git*" \
-        ! -path "*/node_modules*" | fzf --prompt="Nvim > ")
+        ! -path "*/node_modules*" | fzf --prompt="> ")
     
     if [[ -n "$file" ]]; then
         nvim "$file"
