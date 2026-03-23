@@ -119,7 +119,8 @@ jc() {
 # Tmux related 
 tmux() {
     if [ -z "$TMUX" ]; then
-        command tmux new-session -s "$(basename $PWD)" 2>/dev/null || command tmux attach -t "$(basename $PWD)"
+        local name=$(basename $PWD | cut -c1-8)   # max 8 chars
+        command tmux new-session -s "$name" 2>/dev/null || command tmux attach -t "$name"
     else
         command tmux "$@"
     fi
