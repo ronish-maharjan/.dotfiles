@@ -118,16 +118,7 @@ jc() {
 
 tmux() {
     if [ -z "$TMUX" ]; then
-        local name=$(basename $PWD | cut -c1-8)
-        if ! command tmux has-session -t "$name" 2>/dev/null; then
-            command tmux new-session -s "$name" -d
-            command tmux rename-window -t "$name:1" scratch
-            command tmux new-window -t "$name:2" -n server
-            command tmux new-window -t "$name:3" -n nvim
-            command tmux new-window -t "$name:4" -n git
-            command tmux select-window -t "$name:3"
-        fi
-        command tmux attach -t "$name"
+        tmux-sessionizer "$PWD"
     else
         command tmux "$@"
     fi
