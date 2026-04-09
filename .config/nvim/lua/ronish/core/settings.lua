@@ -145,3 +145,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {  -- Listen for the "text was yanke
         })
     end,
 })
+
+
+-- Disable auto comment continuation (// on new lines)
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "r", "o" })
+    end,
+})
