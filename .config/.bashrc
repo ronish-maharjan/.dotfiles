@@ -74,16 +74,8 @@ ff() {
 # ---- jot ----
 export JOT="$HOME/dev-root/jot"
 
-# today's log
-jl() {
-  mkdir -p "$JOT/log"
-  local f="$JOT/log/$(date +%Y-%m-%d).md"
-  if [ ! -f "$f" ]; then
-    printf "# %s %s\n\n## did\n\n\n## learned\n\n\n## thoughts\n\n" \
-      "$(date +%Y-%m-%d)" "$(date +%A)" > "$f"
-  fi
-  cd "$JOT" && nvim "$f"
-}
+# open learning log file
+alias jl='cd $JOT && nvim learning-logs.md'
 
 # open scratch
 alias js='cd $JOT && nvim scratch.md'
