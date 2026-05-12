@@ -90,7 +90,7 @@ vim.opt.wrap = false
 
 -- Keep at least 8 lines visible above and below the cursor when scrolling
 -- This prevents the cursor from reaching the very edge of the screen
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 19 
 
 -- When splitting a window horizontally, put the new window below the current one
 vim.opt.splitbelow = true
@@ -101,10 +101,14 @@ vim.opt.termguicolors = true
 
 -- Always show the status line at the bottom (0=never, 1=only with splits, 2=always)
 vim.opt.laststatus = 2
+vim.opt.cmdheight = 1
+vim.opt.statusline =" %t %= Buffers: %{len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))} "
+vim.cmd("highlight StatusLine guifg=#ffffff guibg=NONE ctermfg=white ctermbg=NONE")
+vim.cmd("highlight StatusLineNC guifg=#aaaaaa guibg=NONE ctermfg=gray ctermbg=NONE")
 
 -- Show a vertical line at column 80 as a visual guide for line length
 -- Helps you keep your code lines from getting too long
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 
 -- Time in milliseconds Neovim waits before triggering certain events (like CursorHold)
 -- Lower value (50ms) makes plugins feel more responsive
@@ -118,6 +122,7 @@ vim.opt.updatetime = 50
 -- Use the system clipboard for all yank (copy) and paste operations
 -- This means you can copy text in Neovim and paste it in your browser and vice versa
 vim.opt.clipboard = "unnamedplus"
+
 
 
 -- ========================
