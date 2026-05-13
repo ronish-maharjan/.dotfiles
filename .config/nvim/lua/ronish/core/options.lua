@@ -103,17 +103,19 @@ vim.opt.termguicolors = true
 vim.opt.laststatus = 2
 vim.opt.cmdheight = 1
 vim.opt.statusline =" %t %= Buffers: %{len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))} "
-vim.cmd("highlight StatusLine guifg=#ffffff guibg=NONE ctermfg=white ctermbg=NONE")
+vim.cmd("highlight StatusLine guifg=#b0b0b0 guibg=NONE ctermfg=white ctermbg=NONE")
 vim.cmd("highlight StatusLineNC guifg=#aaaaaa guibg=NONE ctermfg=gray ctermbg=NONE")
 
 -- Show a vertical line at column 80 as a visual guide for line length
 -- Helps you keep your code lines from getting too long
-vim.opt.colorcolumn = "100"
+--vim.opt.colorcolumn = "100"
 
 -- Time in milliseconds Neovim waits before triggering certain events (like CursorHold)
 -- Lower value (50ms) makes plugins feel more responsive
 vim.opt.updatetime = 50
 
+-- shows lefthand side error info 
+vim.opt.signcolumn = "yes"
 
 -- ========================
 -- CLIPBOARD
@@ -133,6 +135,8 @@ vim.opt.clipboard = "unnamedplus"
 -- "a" would enable it everywhere, "v" limits it to visual selections only
 vim.opt.mouse = "v"
 
+-- change color of the line number
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#b0b0b0" })
 
 -- ========================
 -- AUTOCOMMANDS
