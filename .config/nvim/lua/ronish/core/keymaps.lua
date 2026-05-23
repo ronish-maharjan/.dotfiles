@@ -34,44 +34,45 @@ vim.keymap.set("n", "<leader>fg", function()
 end, { desc = "Live grep (search in files)" })
 
 --- Harpoon binding
-vim.keymap.set("n", "<leader>a", function()
-    require("harpoon.mark").add_file()  -- Add current file to harpoon marks
-end, { desc = "Harpoon: add file" })
+
+---vim.keymap.set("n", "<leader>a", function()
+---    require("harpoon.mark").add_file()  -- Add current file to harpoon marks
+---end, { desc = "Harpoon: add file" })
 
 -- Open the Harpoon quick menu with Ctrl+E
 -- Shows a popup list of all your bookmarked files
-vim.keymap.set("n", "<C-e>", function()
-    require("harpoon.ui").toggle_quick_menu()  -- Toggle the harpoon file list
-end, { desc = "Harpoon: toggle menu" })
+---vim.keymap.set("n", "<C-e>", function()
+---    require("harpoon.ui").toggle_quick_menu()  -- Toggle the harpoon file list
+---end, { desc = "Harpoon: toggle menu" })
 
 -- Jump directly to harpoon file 1 through 5 using Leader+number
 -- This is faster than opening the menu — instant jump to a specific file
-vim.keymap.set("n", "<leader>1", function()
-    require("harpoon.ui").nav_file(1)  -- Navigate to the 1st harpooned file
-end, { desc = "Harpoon: go to file 1" })
-
-vim.keymap.set("n", "<leader>2", function()
-    require("harpoon.ui").nav_file(2)  -- Navigate to the 2nd harpooned file
-end, { desc = "Harpoon: go to file 2" })
-
-vim.keymap.set("n", "<leader>3", function()
-    require("harpoon.ui").nav_file(3)  -- Navigate to the 3rd harpooned file
-end, { desc = "Harpoon: go to file 3" })
-
-vim.keymap.set("n", "<leader>4", function()
-    require("harpoon.ui").nav_file(4)  -- Navigate to the 4th harpooned file
-end, { desc = "Harpoon: go to file 4" })
-
-vim.keymap.set("n", "<leader>5", function()
-    require("harpoon.ui").nav_file(5)  -- Navigate to the 5th harpooned file
-end, { desc = "Harpoon: go to file 5" })
-
--- Automatically clear all harpoon marks when you quit Neovim
-vim.api.nvim_create_autocmd("VimLeavePre", {     -- Listen for "Neovim is about to close" event
-    callback = function()                          -- Run this function when the event fires
-        require("harpoon.mark").clear_all()        -- Remove all harpoon file marks
-    end,
-})
+-- vim.keymap.set("n", "<leader>1", function()
+--     require("harpoon.ui").nav_file(1)  -- Navigate to the 1st harpooned file
+-- end, { desc = "Harpoon: go to file 1" })
+-- 
+-- vim.keymap.set("n", "<leader>2", function()
+--     require("harpoon.ui").nav_file(2)  -- Navigate to the 2nd harpooned file
+-- end, { desc = "Harpoon: go to file 2" })
+-- 
+-- vim.keymap.set("n", "<leader>3", function()
+--     require("harpoon.ui").nav_file(3)  -- Navigate to the 3rd harpooned file
+-- end, { desc = "Harpoon: go to file 3" })
+-- 
+-- vim.keymap.set("n", "<leader>4", function()
+--     require("harpoon.ui").nav_file(4)  -- Navigate to the 4th harpooned file
+-- end, { desc = "Harpoon: go to file 4" })
+-- 
+-- vim.keymap.set("n", "<leader>5", function()
+--     require("harpoon.ui").nav_file(5)  -- Navigate to the 5th harpooned file
+-- end, { desc = "Harpoon: go to file 5" })
+-- 
+-- -- Automatically clear all harpoon marks when you quit Neovim
+-- vim.api.nvim_create_autocmd("VimLeavePre", {     -- Listen for "Neovim is about to close" event
+--     callback = function()                          -- Run this function when the event fires
+--         require("harpoon.mark").clear_all()        -- Remove all harpoon file marks
+--     end,
+-- })
 
 --- Lsp Keymaps
 vim.keymap.set("n", "<leader>k", function()
