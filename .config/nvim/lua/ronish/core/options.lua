@@ -164,3 +164,5 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.formatoptions:remove({ "r", "o" })
     end,
 })
+
+--vim.opt.guicursor = "a:block"
