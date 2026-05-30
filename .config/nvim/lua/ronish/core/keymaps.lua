@@ -33,6 +33,11 @@ vim.keymap.set("n", "<leader>fg", function()
     require("telescope.builtin").live_grep()  -- Call Telescope's live grep function
 end, { desc = "Live grep (search in files)" })
 
+-- Caret binding
+vim.keymap.set("n", "<leader>cp", "<cmd>Caret<CR>", {
+    desc = "Open Caret",
+})
+
 --- Harpoon binding
 
 ---vim.keymap.set("n", "<leader>a", function()
@@ -82,4 +87,4 @@ end, { desc = "Toggle LSP virtual text" })
 vim.keymap.set("n", "<leader>o", vim.diagnostic.open_float, opts)
 
 -- Undo Tree
-vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle undo tree" })
+--vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle undo tree" })
