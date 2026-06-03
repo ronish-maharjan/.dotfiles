@@ -81,12 +81,10 @@
 
 - git
 - neovim
-- fd
 - fzf
 - docker
 - nodejs
 - npm
-- jdk-openjdk
 - htop
 - xclip
 
@@ -101,6 +99,7 @@
 ## Browser
 
 - brave-bin
+- ungoogled chromium
 
 ---
 
