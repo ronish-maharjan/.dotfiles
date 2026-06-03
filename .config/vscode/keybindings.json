@@ -1,0 +1,84 @@
+// Place your key bindings in this file to override the defaults
+[
+  // Open error panel
+  {
+    "key": "ctrl+k",
+    "command": "workbench.actions.view.problems"
+  },
+
+  //open and close terminal
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+
+  //close the explorer if open
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.closeSidebar",
+    "when": "activeViewlet == 'workbench.view.explorer'"
+  },
+
+  {
+    "key": "ctrl+n",
+    "command": "workbench.view.explorer",
+    "when": "!activeViewlet || activeViewlet != 'workbench.view.explorer'"
+  },
+
+  // Create a new untitled file
+  {
+    "key": "alt+a",
+    "command": "workbench.action.files.newUntitledFile"
+  },
+
+  //File Explorer Shortcuts
+  //create new file
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+
+  //create a folder
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+
+  //delete the file or folder
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+
+  // rename the file in the explorer
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+
+  // copy the file in the explorer
+  {
+    "key": "c",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+
+  // paste the file in the explorer
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+
+  // cut the file in the explorer
+  {
+    "key": "x",
+    "command": "filesExplorer.cut",
+    "when": "explorerViewletFocus && !inputFocus"
+  }
+]
