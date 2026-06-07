@@ -166,3 +166,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 --vim.opt.guicursor = "a:block"
+
+--Remove Global Marks when enter in neovim 
+vim.api.nvim_create_autocmd("vimEnter",{
+    callback=function ()
+        vim.cmd("delmarks A-Z")
+    end
+})
