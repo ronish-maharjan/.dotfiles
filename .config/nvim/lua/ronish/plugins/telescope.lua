@@ -55,6 +55,7 @@ return {
                 pickers = {
                     find_files = {
                         hidden = true, -- Ensures hidden files show up in find_files
+                        no_ignore=true,
                     },
                 },
             })
