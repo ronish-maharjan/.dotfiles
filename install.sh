@@ -7,6 +7,7 @@ rm -rf ~/.config/i3status
 rm -rf ~/.config/tmux
 rm -f ~/.bashrc
 rm -f ~/.local/bin/tmux-sessionizer
+rm -f ~/.xinitrc
 
 # now create clean symlinks
 ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
@@ -15,5 +16,6 @@ ln -sf ~/.dotfiles/.config/i3status ~/.config/i3status
 ln -sf ~/.dotfiles/.config/tmux ~/.config/tmux
 ln -sf ~/.dotfiles/.config/.bashrc ~/.bashrc
 ln -sf ~/.dotfiles/bin/tmux-sessionizer ~/.local/bin/tmux-sessionizer
+ln -sf ~/.dotfiles/.xinitrc ~/.xinitrc
 
 echo "done"
