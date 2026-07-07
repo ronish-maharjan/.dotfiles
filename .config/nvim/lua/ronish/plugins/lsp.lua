@@ -27,6 +27,7 @@ return {
             vim.lsp.config("html", {})
             vim.lsp.config("cssls", {})
             vim.lsp.config("lua_ls", {})
+            vim.lsp.config("clangd", {})
 
             -- =========================
             -- ENABLE SERVERS
@@ -36,6 +37,7 @@ return {
                 "html",
                 "cssls",
                 "lua_ls",
+                "clangd"
             })
         end,
     },
