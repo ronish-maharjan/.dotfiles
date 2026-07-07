@@ -15,4 +15,4 @@ chmod +x .dotfiles/install.sh
 bash .dotfiles/install.sh
 ```
 
-> **Last updated:** 2026/03/17
+> **Last updated:** 2026/07/07
