@@ -108,10 +108,10 @@ jc() {
 }
 
 
-tmux() {
-    if [ -z "$TMUX" ]; then
-        tmux-sessionizer "$PWD"
-    else
-        command tmux "$@"
-    fi
-}
+# tmux() {
+#    if [ -z "$TMUX" ]; then
+#        tmux-sessionizer "$PWD"
+#    else
+#        command tmux "$@"
+#    fi
+#}
