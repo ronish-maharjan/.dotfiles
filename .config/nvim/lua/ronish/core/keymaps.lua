@@ -85,6 +85,7 @@ vim.keymap.set("n", "<leader>k", function()
     vim.diagnostic.config({ virtual_text = not current })
 end, { desc = "Toggle LSP virtual text" })
 vim.keymap.set("n", "<leader>o", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
 
 -- Undo Tree
 --vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "Toggle undo tree" })
