@@ -45,12 +45,14 @@ bindsym $mod+Shift+r reload
 #-----------------------------------------#
 # Open D-menu 
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec --no-startup-id dmenu_run \
-  -nb "#000000" \
-  -nf "#ffffff" \
-  -sb "#222222" \
-  -sf "#ffffff" \
-  -fn "JetBrainsMono Nerd Font Mono:bold:size=12"
+#bindsym $mod+d exec --no-startup-id dmenu_run \
+#  -nb "#000000" \
+#  -nf "#ffffff" \
+#  -sb "#222222" \
+#  -sf "#ffffff" \
+#  -fn "JetBrainsMono Nerd Font Mono:bold:size=12"
+
+bindsym $mod+d exec --no-startup-id ~/.local/bin/app-opener \
 #-----------------------------------------#
 #   Bindings Related to Workspaces
 #-----------------------------------------#
@@ -158,6 +160,9 @@ exec --no-startup-id brightnessctl set 1%
 
 #Show the wifi icon in status bar of i3 
 exec --no-startup-id "sleep 2 && nm-applet"
+
+#Show the blutooth icon in status bar of i3 
+exec --no-startup-id "sleep 2 && blueman-applet"
 
 # start audio icon
 exec --no-startup-id "sleep 2 && pasystray"
