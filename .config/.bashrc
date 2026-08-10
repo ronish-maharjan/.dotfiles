@@ -8,8 +8,13 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias test-cfg='git --git-dir=$HOME/testing-bare --work-tree=$HOME'
 
-# Add local bin to PATH
-export PATH="$HOME/.local/bin:$PATH"
+# Function to add path
+path_prepend() {
+    case ":$PATH:" in
+        *":$1:"*) ;;
+        *) PATH="$1:$PATH" ;;
+    esac
+}
 
 # -------- Short Path (parent/current) --------
 short_path() {
@@ -115,3 +120,10 @@ jc() {
 #        command tmux "$@"
 #    fi
 #}
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+
+path_prepend "$PNPM_HOME/bin"
+path_prepend "$HOME/.local/bin"
+
+export PATH
