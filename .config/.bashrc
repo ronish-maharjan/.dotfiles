@@ -1,4 +1,10 @@
 # ~/.bashrc
+
+# My alias
+
+alias vi='nvim'
+alias vim='nvim'
+
 #
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
