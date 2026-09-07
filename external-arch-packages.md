@@ -68,8 +68,7 @@
 
 - i3-wm
 - i3status
-- i3lock
-- i3blocks
+- i3bar
 - dmenu
 - dunst
 - ly

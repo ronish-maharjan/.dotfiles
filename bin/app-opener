@@ -1,0 +1,35 @@
+#!/bin/sh
+
+choice=$(printf "browser\nbruno\ncode\ndbx\npoweroff\nwireshark\nxterm" | dmenu \
+    -nb "#000000" \
+    -nf "#ffffff" \
+    -sb "#222222" \
+    -sf "#ffffff" \
+    -fn "JetBrainsMono Nerd Font Mono:bold:size=12")
+
+case "$choice" in
+    browser)
+        browser
+        ;;
+    bruno)
+        bruno
+        ;;
+    code)
+        code
+        ;;
+    dbx)
+        dbx
+        ;;
+    poweroff)
+        poweroff
+        ;;
+    #reboot)
+    #    reboot
+    #    ;;
+    wireshark)
+        wireshark
+        ;;
+    xterm)
+        xterm
+        ;;
+esac

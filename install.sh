@@ -1,21 +1,70 @@
 #!/bin/bash
 
-# remove existing real dirs/files first
-rm -rf ~/.config/nvim
-rm -rf ~/.config/i3
-rm -rf ~/.config/i3status
-rm -rf ~/.config/tmux
-rm -f ~/.bashrc
-rm -f ~/.local/bin/tmux-sessionizer
-rm -f ~/.xinitrc
+CONFIG="$HOME/.config"
+BIN="$HOME/.local/bin"
 
-# now create clean symlinks
-ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
-ln -sf ~/.dotfiles/.config/i3 ~/.config/i3
-ln -sf ~/.dotfiles/.config/i3status ~/.config/i3status
-ln -sf ~/.dotfiles/.config/tmux ~/.config/tmux
-ln -sf ~/.dotfiles/.config/.bashrc ~/.bashrc
-ln -sf ~/.dotfiles/bin/tmux-sessionizer ~/.local/bin/tmux-sessionizer
-ln -sf ~/.dotfiles/.xinitrc ~/.xinitrc
+mkdir -p "$CONFIG" "$BIN"
 
-echo "done"
+install_link() {
+    local source="$1"
+    local target="$2"
+
+    if [[ -e "$target" || -L "$target" ]]; then
+
+        # Already linked correctly
+        if [[ -L "$target" && "$(readlink "$target")" == "$source" ]]; then
+            echo "Already linked: $target"
+            return
+        fi
+
+        read -rp "$target already exists. Replace it? [y/N] " answer
+
+        case "$answer" in
+            y|Y)
+                rm -rf "$target"
+                ;;
+            *)
+                echo "Skipped: $target"
+                return
+                ;;
+        esac
+    fi
+
+    ln -s "$source" "$target"
+    echo "Linked: $target"
+}
+
+
+echo "Installing dotfiles..."
+echo
+
+install_link \
+    "$PWD/.config/nvim" \
+    "$CONFIG/nvim"
+
+install_link \
+    "$PWD/.config/i3" \
+    "$CONFIG/i3"
+
+install_link \
+    "$PWD/.config/i3status" \
+    "$CONFIG/i3status"
+
+install_link \
+    "$PWD/.config/tmux" \
+    "$CONFIG/tmux"
+
+install_link \
+    "$PWD/.bashrc" \
+    "$HOME/.bashrc"
+
+install_link \
+    "$PWD/.xinitrc" \
+    "$HOME/.xinitrc"
+
+install_link \
+    "$PWD/bin/app-opener" \
+    "$BIN/app-opener"
+
+echo
+echo "Done."
