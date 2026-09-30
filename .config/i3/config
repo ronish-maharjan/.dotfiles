@@ -185,3 +185,6 @@ bindsym Print exec --no-startup-id flameshot gui
 #For enabling and disabling the mike
 exec --no-startup-id "sleep 3 && pactl set-source-mute @DEFAULT_SOURCE@ 1"
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send "Microphone" "$(pactl get-source-mute @DEFAULT_SOURCE@ | grep -q yes && echo 'Muted' || echo 'Active')"
+
+# hdmi sharing just run this command whenever we want to share using hdmi
+#exec xrandr --output HDMI-1-0 --mode 1920x1080 --same-as eDP-1
